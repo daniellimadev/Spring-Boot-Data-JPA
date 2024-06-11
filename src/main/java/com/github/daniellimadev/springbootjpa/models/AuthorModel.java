@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
 @Entity
 @Table(name = "TB_AUTHOR")
@@ -16,7 +15,7 @@ public class AuthorModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    private int id;
 
     @Column(nullable = false, unique = true)
     private String name;
@@ -25,11 +24,11 @@ public class AuthorModel implements Serializable {
     @ManyToMany(mappedBy = "authors", fetch = FetchType.LAZY)
     private Set<BookModel> books = new HashSet<>();
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 

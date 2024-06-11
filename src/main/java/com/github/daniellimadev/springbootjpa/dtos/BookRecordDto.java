@@ -1,10 +1,9 @@
 package com.github.daniellimadev.springbootjpa.dtos;
 
 import java.util.Set;
-import java.util.UUID;
 
 public record BookRecordDto(String title,
-                            UUID publisherId,
-                            Set<UUID> authorIds,
+                            Long publisherId,
+                            Set<Long> authorIds,
                             String reviewComment) {
 }

@@ -6,7 +6,6 @@ import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.UUID;
 
 @Entity
 @Table(name = "TB_BOOK")
@@ -16,7 +15,7 @@ public class BookModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private UUID id;
+    private int id;
 
     @Column(nullable = false, unique = true)
     private String title;
@@ -35,11 +34,11 @@ public class BookModel implements Serializable {
     @OneToOne(mappedBy = "book", cascade = CascadeType.ALL)
     private ReviewModel review;
 
-    public UUID getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(int id) {
         this.id = id;
     }
 
